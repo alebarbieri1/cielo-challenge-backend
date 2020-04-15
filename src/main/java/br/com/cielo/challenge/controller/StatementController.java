@@ -21,7 +21,7 @@ public class StatementController {
 	private StatementService statementService;
 
 	@GetMapping
-	public ResponseEntity<List<Statement>> findStatement() {
+	public ResponseEntity<List<Statement>> findStatement() throws Exception {
 
 		List<Statement> statement = statementService.findStatement();
 

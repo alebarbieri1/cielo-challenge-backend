@@ -14,7 +14,7 @@ public class StatementService {
 	@Autowired
 	private StatementDAO statementDAO;
 
-	public List<Statement> findStatement() {
+	public List<Statement> findStatement() throws Exception {
 		return statementDAO.findStatement();
 	}
 }

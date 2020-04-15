@@ -26,21 +26,20 @@ public class StatementDAO {
 	@Value("${statement.filename}")
 	private String filename;
 
-	public List<Statement> findStatement() {
-		try {
-			Resource resource = new ClassPathResource(filename);
-			File file = resource.getFile();
-			String content = new String(Files.readAllBytes(file.toPath()));
-			JSONObject json = new JSONObject(content);
-			JSONArray array = json.getJSONArray("listaControleLancamento");
-			ObjectMapper mapper = new ObjectMapper();
-			List<Statement> statement = Arrays.asList(mapper.readValue(array.toString(), Statement[].class));
+	public List<Statement> findStatement() throws Exception {
+		logger.info("Searching statement");
 
-			return statement;
+		Resource resource = new ClassPathResource(filename);
+		File file = resource.getFile();
+		String content = new String(Files.readAllBytes(file.toPath()));
+		JSONObject json = new JSONObject(content);
+		JSONArray array = json.getJSONArray("listaControleLancamento");
+		ObjectMapper mapper = new ObjectMapper();
+		List<Statement> statement = Arrays.asList(mapper.readValue(array.toString(), Statement[].class));
 
-		} catch (Exception e) {
-			logger.error(e.getMessage());
-			throw new RuntimeException();
-		}
+		logger.info("Statement found");
+
+		return statement;
+
 	}
 }
