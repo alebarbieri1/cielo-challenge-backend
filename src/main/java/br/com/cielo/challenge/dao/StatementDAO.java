@@ -1,7 +1,6 @@
 package br.com.cielo.challenge.dao;
 
-import java.io.File;
-import java.nio.file.Files;
+import java.io.InputStream;
 import java.util.Arrays;
 import java.util.List;
 
@@ -30,8 +29,8 @@ public class StatementDAO {
 		logger.info("Searching statement");
 
 		Resource resource = new ClassPathResource(filename);
-		File file = resource.getFile();
-		String content = new String(Files.readAllBytes(file.toPath()));
+		InputStream inputStream = resource.getInputStream();
+		String content = new String(inputStream.readAllBytes());
 		JSONObject json = new JSONObject(content);
 		JSONArray array = json.getJSONArray("listaControleLancamento");
 		ObjectMapper mapper = new ObjectMapper();
