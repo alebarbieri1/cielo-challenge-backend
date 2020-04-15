@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class CustomerCheckingAccount {
 	private Long numeroRemessaBanco;
 	private String nomeSituacaoRemessa;
+	private BankAccountData dadosDomicilioBancario;
 	private String nomeTipoOperacao;
 
 	public Long getNumeroRemessaBanco() {
@@ -22,6 +23,14 @@ public class CustomerCheckingAccount {
 
 	public void setNomeSituacaoRemessa(String nomeSituacaoRemessa) {
 		this.nomeSituacaoRemessa = nomeSituacaoRemessa;
+	}
+
+	public BankAccountData getDadosDomicilioBancario() {
+		return dadosDomicilioBancario;
+	}
+
+	public void setDadosDomicilioBancario(BankAccountData dadosDomicilioBancario) {
+		this.dadosDomicilioBancario = dadosDomicilioBancario;
 	}
 
 	public String getNomeTipoOperacao() {

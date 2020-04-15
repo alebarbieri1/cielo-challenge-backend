@@ -1,4 +1,4 @@
-package br.com.cielo.challenge.model;
+package br.com.cielo.challenge.exception.handler;
 
 import java.util.Date;
 
